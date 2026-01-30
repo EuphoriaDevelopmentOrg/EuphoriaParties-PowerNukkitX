@@ -161,7 +161,6 @@ mvn clean package
 ## 📚 Documentation
 
 - **[Admin Guide](ADMIN_GUIDE.md)** - Comprehensive guide for server administrators
-- **[Improvements Log](IMPROVEMENTS.md)** - Detailed technical improvements and features
 - **[Configuration Reference](src/main/resources/config.yml)** - Full configuration options
 
 ## 🔧 Development
@@ -330,7 +329,6 @@ Have an idea? [Open an issue](../../issues/new) with the `enhancement` label!
 
 - **Issues**: [GitHub Issues](../../issues)
 - **Discussions**: [GitHub Discussions](../../discussions)
-- **Discord**: [Join our community](#) *(coming soon)*
 
 ## 📜 License
 
