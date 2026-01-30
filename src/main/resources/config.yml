@@ -1,0 +1,137 @@
+# Euphoria Party Plugin Configuration
+
+# Party Settings
+party:
+  max-members: 8
+  max-pending-invites: 10  # Maximum pending invites per party
+  teleport-enabled: true  # Enable/disable all party teleport features (home and warp)
+  marker-update-interval: 5  # ticks (20 ticks = 1 second) - lower = more frequent
+  marker-distance: 200  # blocks
+  marker-particle: "minecraft:heart_particle"
+  marker-particle-count: 3  # Number of particles to spawn at once
+  invite-expiration: 300000  # milliseconds (5 minutes)
+  disband-when-all-offline: false  # Auto-disband parties when all members are offline
+  prevent-friendly-fire: true  # Prevent party members from damaging each other
+  party-chat-enabled: true  # Enable party chat with @ prefix
+  party-chat-prefix: "@"  # Prefix for party chat messages
+  party-chat-format: "§8[§6Party§8] §f{player}§7: §f{message}"  # Format for party chat
+  show-party-in-chat: true  # Show party name prefix in regular chat
+  party-prefix-format: "§8[§6{party}§8] "  # Format for party name prefix ({party} will be replaced)
+  notify-online-offline: true  # Notify party members when someone logs in/out
+  max-distance-check-enabled: false  # Auto-remove members who get too far
+  max-distance: 500.0  # Maximum distance from leader before auto-removal (blocks)
+  max-distance-check-interval: 200  # How often to check distance (ticks, 200 = 10 seconds)
+  kick-on-world-change: false  # Remove members who change worlds
+  track-playtime: true  # Track total party playtime
+  share-xp: false  # Share XP with nearby party members
+  xp-share-radius: 50.0  # Radius for XP sharing (blocks)
+  share-loot: false  # Chance to duplicate loot drops for nearby party members
+  loot-share-radius: 30.0  # Radius for loot sharing (blocks)
+  loot-share-chance: 0.3  # 30% chance to share loot
+  respawn-at-home: false  # Respawn at party home on death
+  tab-list-formatting: true  # Show party name in tab list
+  tab-list-prefix-format: "{color}[{party}] §r"  # Format for tab list prefix
+  daily-reward-xp: 50  # Base XP for daily reward
+  daily-reward-streak-bonus: 10  # Bonus XP per consecutive day
+  
+  # Party buffs (when near party members)
+  buffs:
+    enabled: true  # Enable party buffs
+    min-members: 2  # Minimum members online to get buffs
+    radius: 50.0  # Radius to be considered "near" party members
+    check-interval: 100  # How often to check and apply buffs (ticks)
+    duration: 120  # Buff duration in ticks (6 seconds)
+    max-amplifier: 2  # Maximum amplifier level (0-2)
+    effects:
+      - speed
+      - regeneration
+  
+  # Party scoreboard
+  scoreboard:
+    enabled: true  # Enable party scoreboard
+    update-interval: 40  # Update frequency (ticks, 40 = 2 seconds)
+    display-type: popup  # Display type: 'popup' (center-top) or 'tip' (action bar)
+  
+# Security Settings
+security:
+  command-cooldown: 3  # seconds between commands per player
+  teleport-cooldown: 30  # seconds between party home teleports
+  max-teleport-distance: 10000  # blocks (prevent cross-world exploits)
+  safe-teleport: true  # Check for safe landing location
+  require-confirmation-disband: true  # Require confirmation before disbanding
+  prevent-invite-spam: true  # Prevent rapid invite spamming
+  invite-cooldown: 5  # seconds between invite commands
+  
+# Performance Settings
+performance:
+  async-save: true  # Save data asynchronously
+  cache-party-lookups: true  # Cache party data for faster lookups
+  cache-ttl: 30000  # Cache time-to-live in milliseconds (30 seconds)
+  leaderboard-cache-ttl: 5000  # Leaderboard cache TTL (5 seconds)
+  optimize-markers: true  # Only update markers when players move
+  marker-move-threshold: 1.0  # Minimum distance moved before updating markers (blocks)
+  memory-cleanup-interval: 6000  # How often to clean up expired data (ticks, 6000 = 5 minutes)
+  batch-achievement-checks: true  # Batch achievement checks to reduce load
+  skip-offline-party-tasks: true  # Skip tasks for parties with no online members
+  auto-save-interval: 6000  # Auto-save interval (ticks, 6000 = 5 minutes)
+  backup-on-save: true  # Create backup file before saving
+  max-cache-size: 1000  # Maximum number of cached entries (0 = unlimited)
+  
+# HUD Settings
+hud:
+  coordinates:
+    default-enabled: true
+    update-interval: 20  # ticks
+    format: "§eX: §f{x} §eY: §f{y} §eZ: §f{z}"
+  
+  compass:
+    default-enabled: true
+    update-interval: 20  # ticks
+    directions:
+      north: "§cN"
+      south: "§cS"
+      east: "§cE"
+      west: "§cW"
+      northeast: "§cNE"
+      northwest: "§cNW"
+      southeast: "§cSE"
+      southwest: "§cSW"
+
+# Message Settings
+messages:
+  prefix: "§8[§6Party§8]§r "
+  party-created: "§aParty created successfully!"
+  party-disbanded: "§cParty has been disbanded."
+  invite-sent: "§aInvite sent to {player}!"
+  invite-received: "§e{player} invited you to their party! Use /party accept to join."
+  invite-expired: "§cParty invite expired."
+  player-joined: "§a{player} joined the party!"
+  player-left: "§c{player} left the party."
+  player-kicked: "§c{player} was kicked from the party."
+  not-in-party: "§cYou are not in a party!"
+  already-in-party: "§cYou are already in a party!"
+  not-party-leader: "§cOnly the party leader can do this!"
+  party-full: "§cParty is full!"
+  home-set: "§aParty home set successfully!"
+  home-not-set: "§cParty home has not been set yet!"
+  teleporting: "§aTeleporting to party home..."
+  coordinates-enabled: "§aCoordinate display enabled!"
+  coordinates-disabled: "§cCoordinate display disabled!"
+  compass-enabled: "§aCompass display enabled!"
+  compass-disabled: "§cCompass display disabled!"
+  command-cooldown: "§cPlease wait {seconds} seconds before using this command again!"
+  teleport-cooldown: "§cPlease wait {seconds} seconds before teleporting again!"
+  teleport-too-far: "§cParty home is too far away to teleport!"
+  unsafe-location: "§cCannot teleport to an unsafe location!"
+  teleport-disabled: "§cParty teleportation is currently disabled!"
+  leader-transferred: "§e{player} is now the party leader!"
+  already-invited: "§c{player} already has a pending invite!"
+
+# Debug and Logging
+debug:
+  enabled: false  # Enable debug logging
+  log-commands: false  # Log all party commands
+  log-events: false  # Log all party events
+  log-performance: false  # Log performance metrics
+  too-many-invites: "§cYour party has too many pending invites!"
+  party-name-set: "§aParty name set to: §e{name}§a!"

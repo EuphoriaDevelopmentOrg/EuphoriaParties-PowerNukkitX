@@ -1,0 +1,41 @@
+name: EuphoriaPartyPlugin
+main: com.euphoria.party.EuphoriaPartyPlugin
+version: "1.0.0"
+api: "2.0.0"
+load: POSTWORLD
+author: Euphoria Team
+description: A comprehensive party system with markers, teleportation, and HUD features
+website: https://github.com/yourusername/EuphoriaPartyPlugin
+softdepend: [PlaceholderAPI]
+
+permissions:
+  euphoria.*:
+    description: All Euphoria Party plugin permissions
+    default: true
+    children:
+      euphoria.party.*: true
+      euphoria.hud.*: true
+  
+  euphoria.party.*:
+    description: All party permissions
+    default: true
+    children:
+      euphoria.party.use: true
+      euphoria.party.create: true
+      euphoria.party.invite: true
+      euphoria.party.kick: true
+      euphoria.party.promote: true
+      euphoria.party.sethome: true
+      euphoria.party.admin: false
+  
+  euphoria.party.admin:
+    description: Party administration permissions
+    default: op
+  
+  euphoria.hud.*:
+    description: All HUD permissions
+    default: true
+    children:
+      euphoria.hud.coordinates: true
+      euphoria.hud.compass: true
+
